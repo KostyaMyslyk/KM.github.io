@@ -1,0 +1,184 @@
+ body {
+   margin: 0;
+   font-family: sans-serif;
+   background: white;
+ }
+
+ header {
+   padding: 1rem;
+   background: lightpink;
+   text-align: center;
+ }
+
+ h1 {
+   margin: 0;
+ }
+
+ .calories-filter {
+   margin: 1rem 0;
+ }
+
+ input[type=radio] {
+   position: absolute;
+   left: -9999px;
+ }
+
+ .filter-type {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 1rem;
+   margin: 1rem 0;
+
+ }
+
+ .filter-type label {
+   padding: .6rem 1.2rem;
+   border: 2px solid black;
+   border-radius: 6px;
+   background: white;
+   cursor: pointer;
+   font-weight: 600;
+   transition: all .2s;
+ }
+
+ .filter-type label:hover {
+   background: coral;
+ }
+
+ #all:checked~header .filter-type label[for="all"],
+ #cake:checked~header .filter-type label[for="cake"],
+ #cookie:checked~header .filter-type label[for="cookie"],
+ #muffin:checked~header .filter-type label[for="muffin"] #roll:checked~header .filter-type label[for="roll"] #pie:checked~header .filter-type label[for="pie"] {
+   background: white;
+   color: black;
+   border-color: black;
+ }
+
+
+ .gallery {
+   display: grid;
+   gap: 1rem;
+   padding: 1rem;
+ }
+
+ .footer-desktop {
+   display: none;
+ }
+
+ .footer-tablet {
+   display: none;
+ }
+
+ .footer-mobile {
+   display: none;
+ }
+
+ @media (min-width: 375px) and (max-width: 730px) {
+   .gallery {
+     grid-template-columns: 1fr;
+   }
+
+   .footer-mobile {
+     display: block;
+   }
+ }
+
+ @media (min-width: 730px) and (max-width: 1200px) {
+   .gallery {
+     grid-template-columns: repeat(2, 1fr);
+   }
+
+   .footer-tablet {
+     display: block;
+   }
+ }
+
+ @media (min-width: 1200px) {
+   .gallery {
+     grid-template-columns: repeat(3, 1fr);
+   }
+
+   .footer-desktop {
+     display: block;
+   }
+ }
+
+
+ .card {
+   display: flex;
+   flex-direction: column;
+   border: 1px solid black;
+   background: lightgray;
+   height: 100%;
+ }
+
+ .card img {
+   width: 100%;
+   height: 300px;
+   object-fit: cover;
+   object-position: top;
+ }
+
+ .card-body {
+   flex-grow: 1;
+   padding: .5rem;
+   border-top: 1px solid white;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+ }
+
+ .card-body h2 {
+   margin: .3rem 0;
+ }
+
+ .calories {
+   font-weight: bold;
+   color: purple;
+ }
+
+ #cake:checked~.gallery .card:not(.cake) {
+   display: none;
+ }
+
+ #cookie:checked~.gallery .card:not(.cookie) {
+   display: none;
+ }
+
+ #muffin:checked~.gallery .card:not(.muffin) {
+   display: none;
+ }
+
+ #roll:checked~.gallery .card:not(.roll) {
+   display: none;
+ }
+
+ #pie:checked~.gallery .card:not(.pie) {
+   display: none;
+ }
+
+ #all:checked~.gallery .card {
+   display: flex;
+ }
+
+ .footer-mobile {
+   background: lightgreen;
+   text-align: center;
+   padding: 1rem;
+   margin-top: 1rem;
+ }
+
+ .footer-tablet {
+   background: lime;
+   text-align: left;
+   padding: 1rem;
+   margin-top: 1rem;
+ }
+
+ .footer-desktop {
+   background: green;
+   text-align: right;
+   padding: 1rem;
+   margin-top: 1rem;
+ }
